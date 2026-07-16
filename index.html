@@ -50,17 +50,20 @@
                 <a href="#tech-stack" class="nav-link">
                     <span class="nav-num">03.</span> Tech Stack
                 </a>
+                <a href="#playground" class="nav-link">
+                    <span class="nav-num">04.</span> Playground
+                </a>
                 <a href="#solutions" class="nav-link">
-                    <span class="nav-num">04.</span> Solutions
+                    <span class="nav-num">05.</span> Solutions
                 </a>
                 <a href="#projects" class="nav-link">
-                    <span class="nav-num">05.</span> Projects
+                    <span class="nav-num">06.</span> Projects
                 </a>
                 <a href="#experience" class="nav-link">
-                    <span class="nav-num">06.</span> Experience
+                    <span class="nav-num">07.</span> Experience
                 </a>
                 <a href="#contact" class="nav-link">
-                    <span class="nav-num">07.</span> Contact
+                    <span class="nav-num">08.</span> Contact
                 </a>
             </nav>
 
@@ -414,6 +417,87 @@
             </div>
         </section>
 
+        <!-- Section 3.5: Automation Playground -->
+        <section id="playground" class="playground-section scroll-reveal">
+            <!-- Background Code particles -->
+            <div class="code-particle float-particle" style="top: 10%; left: 5%; --delay: -4s; --duration: 14s;">MailApp.sendEmail(recipient, subject, body);</div>
+            <div class="code-particle float-particle" style="bottom: 12%; right: 8%; --delay: -8s; --duration: 17s;">SpreadsheetApp.getActiveSpreadsheet();</div>
+
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">03. Automation Terminal</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Interact with real-time simulations of custom Google Apps Script automation tasks and spreadsheet synchronization routines.</p>
+                </div>
+                
+                <div class="playground-grid">
+                    <!-- Left: Control Deck -->
+                    <div class="terminal-control-deck card">
+                        <div class="control-header">
+                            <span class="control-label font-accent">AUTOMATION_SCRIPTS</span>
+                        </div>
+                        <p class="control-desc text-muted">Select an engineering routine below to execute it in the sandbox terminal. Monitor active webhooks, log timestamps, and system pipelines.</p>
+                        
+                        <div class="script-options-list">
+                            <div class="script-option-item active" data-script="dbSync">
+                                <div class="script-meta">
+                                    <span class="script-file font-accent">dbSync.js</span>
+                                    <span class="script-desc">Read relational structures & sync modifications to Google Sheets</span>
+                                </div>
+                                <button class="btn-execute-script font-accent" id="btn-run-dbsync">
+                                    <span class="btn-text">Execute Script</span>
+                                    <span class="btn-indicator"></span>
+                                </button>
+                            </div>
+                            
+                            <div class="script-option-item" data-script="pdfEngine">
+                                <div class="script-meta">
+                                    <span class="script-file font-accent">pdfEngine.gs</span>
+                                    <span class="script-desc">Compile grading schemas & generate PDF reports to Google Drive</span>
+                                </div>
+                                <button class="btn-execute-script font-accent" id="btn-run-pdfengine">
+                                    <span class="btn-text">Execute Script</span>
+                                    <span class="btn-indicator"></span>
+                                </button>
+                            </div>
+                            
+                            <div class="script-option-item" data-script="notifier">
+                                <div class="script-meta">
+                                    <span class="script-file font-accent">alertSystem.gs</span>
+                                    <span class="script-desc">Structure webhook payloads & push alerts to Telegram channels</span>
+                                </div>
+                                <button class="btn-execute-script font-accent" id="btn-run-notifier">
+                                    <span class="btn-text">Execute Script</span>
+                                    <span class="btn-indicator"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Terminal window -->
+                    <div class="terminal-display">
+                        <div class="terminal-display-header">
+                            <div class="window-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <span class="terminal-tab-label font-accent">saran@apps-script-sandbox:~</span>
+                            <button class="terminal-clear-btn" id="terminal-clear-btn" title="Clear console output">Clear</button>
+                        </div>
+                        <div class="terminal-display-body" id="terminal-display-body">
+                            <div class="terminal-log-line output-system">[SYSTEM] Console initialised. Select a script to execute.</div>
+                            <div class="terminal-prompt-line">
+                                <span class="terminal-prompt-prefix font-accent">saran@apps-script:~$</span>
+                                <span class="terminal-active-command" id="terminal-active-command"></span>
+                                <span class="terminal-cursor"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Section 4: Solutions I've Built -->
         <section id="solutions" class="solutions-section scroll-reveal">
             <!-- Background Code particles -->
@@ -422,7 +506,7 @@
 
             <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title">03. Solutions I've Built</h2>
+                    <h2 class="section-title">04. Solutions I've Built</h2>
                     <div class="section-divider"></div>
                     <p class="section-subtitle">A collection of custom production systems, administration systems, and automated tools built for institutional scale.</p>
                 </div>
@@ -709,7 +793,7 @@
 
             <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title">04. Deployed Systems</h2>
+                    <h2 class="section-title">05. Deployed Systems</h2>
                     <div class="section-divider"></div>
                     <p class="section-subtitle">Demonstrated educational platforms, academic management modules, and client-side utilities.</p>
                 </div>
@@ -925,7 +1009,7 @@
 
             <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title">05. Professional History</h2>
+                    <h2 class="section-title">06. Professional History</h2>
                     <div class="section-divider"></div>
                     <p class="section-subtitle">A chronological record of project milestones, academic deployments, and engineering roles.</p>
                 </div>
@@ -968,7 +1052,7 @@
 
             <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title">06. Driver Telemetry</h2>
+                    <h2 class="section-title">07. Driver Telemetry</h2>
                     <div class="section-divider"></div>
                     <p class="section-subtitle">Initiate contact to request my engineering specifications, inspect my garage, or propose custom machine builds.</p>
                 </div>
@@ -1106,6 +1190,30 @@
             </div>
         </div>
     </footer>
+
+    <!-- Slide-Over Spec Drawer -->
+    <div class="spec-drawer" id="spec-drawer" aria-hidden="true">
+        <div class="drawer-backdrop" id="drawer-backdrop"></div>
+        <div class="drawer-panel">
+            <div class="drawer-header">
+                <div class="window-dots">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <span class="drawer-title-label font-accent">specification_sheet.json</span>
+                <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close specification sheet">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="drawer-content-body" id="drawer-content-body">
+                <!-- Content injected dynamically via JS -->
+            </div>
+        </div>
+    </div>
 
     <!-- Main JavaScript -->
     <script src="script.js"></script>

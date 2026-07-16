@@ -1993,3 +1993,554 @@ button, input, textarea {
         text-align: center;
     }
 }
+
+/* ==========================================================================
+   Automation Playground Section & CLI Terminal Styles
+   ========================================================================== */
+.playground-section {
+    position: relative;
+    padding: 6rem 0;
+}
+
+.playground-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2.8rem;
+    margin-top: 3.5rem;
+    align-items: stretch;
+}
+
+.terminal-control-deck {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem 2.2rem;
+    backdrop-filter: blur(20px);
+}
+
+[data-theme="light"] .terminal-control-deck {
+    background: #ffffff;
+}
+
+.control-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.control-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+}
+
+.control-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.script-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.script-option-item {
+    background: hsla(215, 12%, 10%, 0.15);
+    border: 1px solid var(--border-color);
+    padding: 1.2rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+[data-theme="light"] .script-option-item {
+    background: hsla(215, 10%, 95%, 0.4);
+}
+
+.script-option-item.active {
+    border-color: var(--primary-glow);
+    background: hsla(0, 80%, 48%, 0.03);
+}
+
+[data-theme="light"] .script-option-item.active {
+    background: hsla(0, 80%, 48%, 0.02);
+}
+
+.script-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex-grow: 1;
+}
+
+.script-file {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.script-desc {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.btn-execute-script {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.55rem 1.1rem;
+    border-radius: 4px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+    position: relative;
+}
+
+.script-option-item.active .btn-execute-script {
+    border-color: var(--primary-glow);
+    color: var(--primary-glow);
+    box-shadow: 0 0 8px var(--glow-color);
+}
+
+.script-option-item.active .btn-execute-script:hover {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 0 12px var(--primary-glow);
+    transform: translateY(-1px);
+}
+
+.btn-execute-script:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* CLI Terminal Display */
+.terminal-display {
+    background: #080c14; /* Solid CLI dark */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 380px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .terminal-display {
+    background: #0a0d16; /* Keep terminal dark in light mode too */
+}
+
+.terminal-display-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0d121c;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.8rem 1.4rem;
+}
+
+.terminal-tab-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.terminal-clear-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: 'Space Grotesk', monospace;
+    transition: color 0.3s;
+}
+
+.terminal-clear-btn:hover {
+    color: var(--primary-glow);
+}
+
+.terminal-display-body {
+    padding: 1.6rem;
+    flex-grow: 1;
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.78rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    overflow-y: auto;
+    max-height: 410px;
+}
+
+.terminal-log-line {
+    word-break: break-all;
+    opacity: 0.9;
+    animation: log-slide-in 0.25s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes log-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+.terminal-log-line.output-info {
+    color: #60a5fa; /* Info blue */
+}
+
+.terminal-log-line.output-success {
+    color: #34d399; /* Success green */
+}
+
+.terminal-log-line.output-warn {
+    color: #fbbf24; /* Alert yellow */
+}
+
+.terminal-log-line.output-error {
+    color: #f87171; /* Danger red */
+}
+
+.terminal-log-line.output-system {
+    color: #c084fc; /* System purple */
+}
+
+.terminal-prompt-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.terminal-prompt-prefix {
+    color: var(--primary-glow);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.terminal-active-command {
+    color: #f1f5f9;
+    font-weight: 600;
+    min-height: 15px;
+    display: inline-block;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 6px;
+    height: 13px;
+    background: var(--primary-glow);
+    animation: terminal-blink 1.1s infinite step-end;
+}
+
+@keyframes terminal-blink {
+    50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   Slide-Over Project Specification Drawer
+   ========================================================================== */
+.spec-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+    visibility: hidden;
+    transition: visibility 0.4s;
+}
+
+.spec-drawer.active {
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.drawer-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(4, 7, 12, 0.4);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2005;
+    cursor: pointer;
+}
+
+.spec-drawer.active .drawer-backdrop {
+    opacity: 1;
+}
+
+.drawer-panel {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    height: 100%;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border-color);
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.5);
+    z-index: 2010;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(30px);
+}
+
+[data-theme="light"] .drawer-panel {
+    background: #ffffff;
+}
+
+.spec-drawer.active .drawer-panel {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+    background: hsla(215, 15%, 8%, 0.3);
+}
+
+[data-theme="light"] .drawer-header {
+    background: hsla(215, 10%, 95%, 0.5);
+}
+
+.drawer-title-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+}
+
+.drawer-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.drawer-close-btn:hover {
+    color: var(--primary-glow);
+    transform: rotate(90deg);
+}
+
+.drawer-content-body {
+    padding: 2.2rem;
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Spec Detail Blocks */
+.drawer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.drawer-sec-title {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.4rem;
+}
+
+.drawer-p-name {
+    font-family: var(--font-heading);
+    font-size: 1.95rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.2rem;
+}
+
+.drawer-p-tagline {
+    font-size: 1.05rem;
+    color: var(--primary-glow);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.drawer-p-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+.drawer-tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+}
+
+.drawer-tech-chip {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    background: hsla(215, 12%, 15%, 0.35);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    font-family: 'Space Grotesk', monospace;
+}
+
+[data-theme="light"] .drawer-tech-chip {
+    background: hsla(215, 10%, 93%, 0.4);
+}
+
+.drawer-metric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 0.4rem;
+}
+
+.drawer-metric-card {
+    background: hsla(215, 15%, 8%, 0.2);
+    border: 1px solid var(--border-color);
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+[data-theme="light"] .drawer-metric-card {
+    background: hsla(215, 10%, 95%, 0.3);
+}
+
+.d-met-val {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-glow);
+}
+
+[data-theme="light"] .d-met-val {
+    color: var(--primary);
+}
+
+.d-met-label {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Spec Drawer Code View */
+.drawer-code-window {
+    background: #06090f;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.4rem;
+}
+
+.code-win-header {
+    background: #0a0d16;
+    padding: 0.6rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.code-win-title {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.code-win-lang {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.68rem;
+    color: var(--primary-glow);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.drawer-code-block {
+    padding: 1.4rem;
+    overflow-x: auto;
+    margin: 0;
+    font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.74rem;
+    color: #cbd5e1;
+    line-height: 1.55;
+    white-space: pre;
+}
+
+/* ==========================================================================
+   Responsive Overrides for Playgrounds & Drawers
+   ========================================================================== */
+@media (max-width: 992px) {
+    .playground-grid {
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .drawer-panel {
+        max-width: 100%;
+        border-left: none;
+    }
+    
+    .drawer-metric-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .script-option-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.2rem;
+    }
+    
+    .btn-execute-script {
+        width: 100%;
+        justify-content: center;
+    }
+}
+}
