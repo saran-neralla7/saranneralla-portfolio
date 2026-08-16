@@ -448,23 +448,26 @@ button, input, textarea {
 
 .nav-menu {
     display: flex;
-    gap: 2.2rem;
+    align-items: center;
+    gap: 1.35rem;
 }
 
 .nav-link {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
+    transition: color var(--transition-fast);
 }
 
 .nav-num {
-    color: var(--primary);
-    font-size: 0.75rem;
-    margin-right: 0.2rem;
+    display: none; /* Hide numbers in top navbar for a clean, spacious look */
 }
 
 .nav-link::after {
@@ -1890,9 +1893,35 @@ button, input, textarea {
         gap: 1.5rem;
     }
     
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+    .mobile-nav-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height-initial);
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - var(--header-height-initial));
+        background: var(--bg-main);
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 0;
+        gap: 1.8rem;
+        box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        border-top: 1px solid var(--border-color);
+        transition: var(--transition-bounce);
+    }
+
+    .nav-menu .nav-num {
+        display: inline-block;
+        color: var(--primary);
+        font-size: 0.75rem;
+        margin-right: 0.3rem;
+    }
+    
+    .nav-menu.active {
+        left: 0;
     }
 }
 
@@ -1939,30 +1968,6 @@ button, input, textarea {
     
     .metric-divider {
         display: none;
-    }
-    
-    .mobile-nav-toggle {
-        display: flex;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        top: var(--header-height-initial);
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - var(--header-height-initial));
-        background: var(--bg-main);
-        flex-direction: column;
-        align-items: center;
-        padding: 3rem 0;
-        gap: 2rem;
-        box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-        border-top: 1px solid var(--border-color);
-        transition: var(--transition-bounce);
-    }
-    
-    .nav-menu.active {
-        left: 0;
     }
     
     .mobile-nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
