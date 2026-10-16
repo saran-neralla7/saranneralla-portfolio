@@ -72,7 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
        3. Typewriting Animation (Hero)
        ========================================== */
     const typingTextEl = document.getElementById('typing-text');
-    const words = ['Software Architect', 'Edu-Tech Builder', 'Problem Solver'];
+    const words = [
+        'Full-Stack Systems Architect', 
+        'Modern Vibe Coder ⚡', 
+        'High-Velocity AI Builder', 
+        'Edu-Tech & Cloud Engineer'
+    ];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
